@@ -1,0 +1,6 @@
+setup.py
+src/heuristic.egg-info/PKG-INFO
+src/heuristic.egg-info/SOURCES.txt
+src/heuristic.egg-info/dependency_links.txt
+src/heuristic.egg-info/not-zip-safe
+src/heuristic.egg-info/top_level.txt
