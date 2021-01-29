@@ -6,6 +6,7 @@
 // Custom headers
 #include <string>
 #include "point.h"
+#include "track.h"
 
 namespace py = pybind11;
 
@@ -29,4 +30,29 @@ PYBIND11_MODULE(heuristic, m)
                 return r;
             })
             ;
+
+
+    py::class_<Track>(m, "Track")
+        .def(py::init<Point&, Point&>(), py::arg("startpoint"), py::arg("endpoint"))
+        .def_readonly("startpoint" , &Track::startpoint)
+        .def_readonly("endpoint" , &Track::endpoint)
+        .def_readonly("dx" , &Track::dx)
+        .def_readonly("dy" , &Track::dy)
+        .def_readonly("s" , &Track::s)
+        .def_readonly("t" , &Track::t)
+        .def("__repr__",
+            [](const Track &t) {
+                std::string r("Track(dx: ");
+                r += std::to_string(t.dx);
+                r += ", dy: ";
+                r += std::to_string(t.dy);
+                r += ", angle: ";
+                r += std::to_string(t.t);
+                r += ", distance: ";
+                r += std::to_string(t.s);
+                r += ")";
+                return r;
+            })
+            ;
+    
 }
