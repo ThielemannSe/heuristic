@@ -20,6 +20,7 @@ class TestPointClass(unittest.TestCase):
         # Track object
         self.t1 = heuristic.Track(self.p1, self.p2)
 
+
     def tearDown(self):
         pass
 
