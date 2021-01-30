@@ -7,6 +7,6 @@ p2 = Point(3, 3)
 p3 = Point(1,3)
 
 
-t = Track(p2, p1)
+t = Track(p1, p2)
 
-print(t.angle(p1, p3))
+print(t.pitch(p3))

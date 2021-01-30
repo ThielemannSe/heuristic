@@ -41,6 +41,7 @@ PYBIND11_MODULE(heuristic, m)
         .def_readonly("s" , &Track::s)
         .def_readonly("t" , &Track::t)
         .def("angle", &Track::angle, "Calculates the geodatic angle between two points.")
+        .def("pitch", &Track::pitch, "Calculates the geodatic angle between two points.")
         .def("__repr__",
             [](const Track &t) {
                 std::string r("Track(dx: ");

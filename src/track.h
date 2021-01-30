@@ -34,6 +34,9 @@ public:
     // Angle function
     const double angle(Point &p1, Point &p2);
 
+    // Pitch function
+    const double pitch(Point &p);
+
 };
 
 

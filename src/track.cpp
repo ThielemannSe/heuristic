@@ -13,8 +13,6 @@ Track::Track(Point &startpoint, Point &endpoint)
 {
     // Setting start- and endpoint.
     this->startpoint = startpoint; this->endpoint = endpoint;
-    this->dx = endpoint.x - startpoint.x;
-    this->dy = endpoint.y - startpoint.y;
     this->s = startpoint.distance(endpoint);
     this->t = angle(startpoint, endpoint);
 }
@@ -48,9 +46,9 @@ const double Track::angle(Point &p1, Point &p2)
 }
 
 // Pitch function
-const double pitch(Point &p)
+const double Track::pitch(Point &p)
 {
-    return 0;
+    return angle(startpoint, p);
 }
 
 
