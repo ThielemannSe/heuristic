@@ -31,8 +31,7 @@ public:
     // Constructor taking two arguments of type Point
     Track(Point &startpoint, Point &endpoint);
 
-    const double pitch(Point &p);
-
+    // Angle function
     const double angle(Point &p1, Point &p2);
 
 };

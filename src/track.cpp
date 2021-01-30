@@ -16,24 +16,9 @@ Track::Track(Point &startpoint, Point &endpoint)
     this->dx = endpoint.x - startpoint.x;
     this->dy = endpoint.y - startpoint.y;
     this->s = startpoint.distance(endpoint);
-    this->t = atan(dx / dy) * 180 / PI;
+    this->t = angle(startpoint, endpoint);
 }
 
-// Pitch function
-const double Track::pitch(Point &p)
-{
-    // Calculating delta x and y between startpoint and 
-    // a given point p.
-    double dx_p = p.x - startpoint.x;
-    double dy_p = p.y - startpoint.y;
-
-    // Calculating distance and angle between startpoint
-    // and given point p.
-    double s_p = startpoint.distance(p);
-    double t_p = atan(dx_p / dy_p) * 180 / PI;
-
-    return t_p;
-}
 
 // Angle function
 const double Track::angle(Point &p1, Point &p2)
@@ -59,10 +44,14 @@ const double Track::angle(Point &p1, Point &p2)
         return t + 360;
     } else {
         return 0;
-    } 
-        
+    }     
 }
 
+// Pitch function
+const double pitch(Point &p)
+{
+    return 0;
+}
 
 
 
