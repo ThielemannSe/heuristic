@@ -25,21 +25,21 @@ const double Track::angle(Point &p1, Point &p2)
     double dx = p2.x - p1.x;
     double dy = p2.y - p1.y;
 
-    double t = atan(dx / dy) * 180 / PI;    
+    double t = atan(dx / dy);    
 
     // Calculating the geodatic angle between two points.
     // First quadrant
-    if (dx > 0 and dy > 0) {
+    if (dx >= 0 and dy >= 0) {
         return t;
     // Second quadrant
-    } else if (dx > 0 && dy < 0) {
-        return t + 180;
+    } else if (dx >= 0 && dy <= 0) {
+        return t + PI;
     // Third quadrant
-    } else if (dx < 0 && dy < 0) {
-        return t + 180;
+    } else if (dx <= 0 && dy <= 0) {
+        return t + PI;
     // Fourth quadrant
-    } else if (dx < 0 && dy > 0) {
-        return t + 360;
+    } else if (dx <= 0 && dy >= 0) {
+        return t + PI * 2;
     } else {
         return 0;
     }     
@@ -48,7 +48,13 @@ const double Track::angle(Point &p1, Point &p2)
 // Pitch function
 const double Track::pitch(Point &p)
 {
-    return angle(startpoint, p);
+    double t_p = t - angle(startpoint, p);
+    if (startpoint.distance(p) < s/2)
+    {
+        return sin(t_p) / cos(t_p);
+    } else {
+        return -1 * sin(t_p) / cos(t_p);
+    }
 }
 
 

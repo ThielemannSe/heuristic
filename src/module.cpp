@@ -36,19 +36,13 @@ PYBIND11_MODULE(heuristic, m)
         .def(py::init<Point&, Point&>(), py::arg("startpoint"), py::arg("endpoint"))
         .def_readonly("startpoint" , &Track::startpoint)
         .def_readonly("endpoint" , &Track::endpoint)
-        .def_readonly("dx" , &Track::dx)
-        .def_readonly("dy" , &Track::dy)
         .def_readonly("s" , &Track::s)
         .def_readonly("t" , &Track::t)
         .def("angle", &Track::angle, "Calculates the geodatic angle between two points.")
         .def("pitch", &Track::pitch, "Calculates the geodatic angle between two points.")
         .def("__repr__",
             [](const Track &t) {
-                std::string r("Track(dx: ");
-                r += std::to_string(t.dx);
-                r += ", dy: ";
-                r += std::to_string(t.dy);
-                r += ", angle: ";
+                std::string r("Track(angle: ");
                 r += std::to_string(t.t);
                 r += ", distance: ";
                 r += std::to_string(t.s);
