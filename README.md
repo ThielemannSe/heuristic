@@ -2,6 +2,9 @@
 
 A heuristic approach for simulating trains movement for noise propagation.
 
+### Vector Field
+
+This is an example of a calculated vector field for a given track (blue line).
 ![](img/slopefield.png)
 
 ---
