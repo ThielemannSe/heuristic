@@ -49,12 +49,9 @@ const double Track::angle(Point &p1, Point &p2)
 const double Track::pitch(Point &p)
 {
     double t_p = t - angle(startpoint, p);
-    if (startpoint.distance(p) < s/2)
-    {
-        return sin(t_p) / cos(t_p);
-    } else {
-        return -1 * sin(t_p) / cos(t_p);
-    }
+    double dx_p = cos(t_p) * startpoint.distance(p);
+    double dy_p = sin(t_p) * startpoint.distance(p);
+    return round(dy_p * sin(2 * PI * (dx_p/s)) * 1000.0 ) / 1000.0;
 }
 
 
