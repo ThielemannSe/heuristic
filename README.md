@@ -2,7 +2,7 @@
 
 A heuristic approach for simulating trains movement for noise propagation.
 
-|[](img/slopefield.png)
+![](img/slopefield.png)
 
 ---
 
